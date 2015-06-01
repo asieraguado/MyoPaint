@@ -1,0 +1,14 @@
+@relation position
+
+% All real positions are relative to torso position.
+@attribute class {rest, index, pinch_1, fist, spread}
+@attribute A real
+@attribute B real
+@attribute C real
+@attribute D real
+@attribute E real
+@attribute F real
+@attribute G real
+@attribute H real
+
+@data

@@ -1,0 +1,29 @@
+@relation position
+
+@attribute class {rest, index, pinch_1, fist, spread}
+@attribute A_mean Integer
+@attribute A_median Integer
+@attribute A_variance Integer
+@attribute B_mean Integer
+@attribute B_median Integer
+@attribute B_variance Integer
+@attribute C_mean Integer
+@attribute C_median Integer
+@attribute C_variance Integer
+@attribute D_mean Integer
+@attribute D_median Integer
+@attribute D_variance Integer
+@attribute E_mean Integer
+@attribute E_median Integer
+@attribute E_variance Integer
+@attribute F_mean Integer
+@attribute F_median Integer
+@attribute F_variance Integer
+@attribute G_mean Integer
+@attribute G_median Integer
+@attribute G_variance Integer
+@attribute H_mean Integer
+@attribute H_median Integer
+@attribute H_variance Integer
+
+@data
