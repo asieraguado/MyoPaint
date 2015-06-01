@@ -1,6 +1,6 @@
 // Copyright (C) 2013-2014 Thalmic Labs Inc.
 // Distributed under the Myo SDK license agreement. See LICENSE.txt for details.
-
+//
 // This sample illustrates how to use EMG data. EMG streaming is only supported for one Myo at a time.
 
 #include <array>
