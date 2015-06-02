@@ -15,8 +15,6 @@
 #include "datacollector.h"
 #include <myo/myo.hpp>
 
-#define WINDOW_SIZE 8
-
 int main(int argc, char** argv)
 {
     try {
@@ -53,22 +51,23 @@ int main(int argc, char** argv)
 
 	// Our own gesture classifier (random forest)
 	randomforest classifier;
-	classifier.createFromFile("randomtree_mmv.txt");
+//	classifier.createFromFile("randomtree_mmv.txt");
 
     // Hub::addListener() takes the address of any object whose class inherits from DeviceListener, and will cause
     // Hub::run() to send events to all registered device listeners.
     hub.addListener(&collector);
 
 	std::string detected_gesture;
-	int n = 500;
+	int n = 50;
 		while (1) {
 			// In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
-			// In this case, we wish to update our display 50 times a second, so we run for 1000/20 milliseconds.
+			// In this case, we wish to update our display 20 times a second, so we run for 1000/20 milliseconds.
 			hub.run(50);
 			std::map<std::string, float> current_data = collector.getDataset();
 			collector.print();
-			detected_gesture = classifier.classify(current_data);
-			std::cout << detected_gesture << std::endl;
+			std::cout << n << std::endl;
+//			detected_gesture = classifier.classify(current_data);
+//			std::cout << detected_gesture << std::endl;
 			if (n == 0) break;
 			n--;
 		}

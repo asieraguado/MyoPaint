@@ -1,6 +1,8 @@
 #pragma once
 
-#define WINDOW_SIZE 40/5
+// Window size is 10 and we get data every 5ms (EMG works at 200Hz), 
+// so a completely different dataset is generated every 50ms
+#define WINDOW_SIZE 10
 
 #include <array>
 #include <iostream>
