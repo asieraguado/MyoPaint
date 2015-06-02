@@ -160,12 +160,14 @@
   <ItemGroup>
     <ClCompile Include="datacollector.cpp" />
     <ClCompile Include="emg-data-sample.cpp" />
+    <ClCompile Include="keyMap.cpp" />
     <ClCompile Include="modeltree.cpp" />
     <ClCompile Include="randomforest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="datacollector.h" />
     <ClInclude Include="exceptions.h" />
+    <ClInclude Include="keyMap.h" />
     <ClInclude Include="modeltree.h" />
     <ClInclude Include="randomforest.h" />
   </ItemGroup>
