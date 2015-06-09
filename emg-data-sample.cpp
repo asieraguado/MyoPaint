@@ -13,6 +13,7 @@
 #include <map>
 #include "randomforest.h"
 #include "datacollector.h"
+#include "keyMap.h"
 #include <myo/myo.hpp>
 
 #define WINDOW_SIZE 8
@@ -59,6 +60,7 @@ int main(int argc, char** argv)
     // Hub::run() to send events to all registered device listeners.
     hub.addListener(&collector);
 
+	keyMap keymap;
 	std::string detected_gesture;
 	int n = 500;
 		while (1) {
