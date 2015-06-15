@@ -44,14 +44,14 @@ int main(int argc, char** argv)
 
 	// Get the gesture name
 	std::string gesture;
-	std::cin >> gesture;
+//	std::cin >> gesture;
 
     // DataCollector is myo::DeviceListener class with utilities for 
     DataCollector collector(gesture);
 
 	// Our own gesture classifier (random forest)
 	randomforest classifier;
-//	classifier.createFromFile("randomtree_mmv.txt");
+	classifier.createFromFile("randomforest_pinch2.txt");
 
     // Hub::addListener() takes the address of any object whose class inherits from DeviceListener, and will cause
     // Hub::run() to send events to all registered device listeners.
@@ -65,11 +65,11 @@ int main(int argc, char** argv)
 			hub.run(50);
 			std::map<std::string, float> current_data = collector.getDataset();
 			collector.print();
-			std::cout << n << std::endl;
-//			detected_gesture = classifier.classify(current_data);
-//			std::cout << detected_gesture << std::endl;
-			if (n == 0) break;
-			n--;
+//			std::cout << n << std::endl;
+			detected_gesture = classifier.classify(current_data);
+			std::cout << detected_gesture << std::endl;
+//			if (n == 0) break;
+//			n--;
 		}
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
