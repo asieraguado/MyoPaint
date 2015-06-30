@@ -15,12 +15,45 @@
 #include "datacollector.h"
 #include "keyMap.h"
 #include <myo/myo.hpp>
+#include <ctime>
 
 #define WINDOW_SIZE 8
 
+int reaction(keyMap keymap, std::string detected_gesture) {
+	if(detected_gesture == "fist") {
+		// Ctrl+N
+		keymap.pressKey("control");
+		keymap.pressKey("N");
+		keymap.releaseKey("N");
+		keymap.releaseKey("control");
+	} else if(detected_gesture == "pinch_1") {
+		// Enter
+		keymap.pressKey("return");
+		keymap.releaseKey("return");
+	} else if(detected_gesture == "index") {
+		// Mouse left click
+		keymap.pressKey("left_click");
+		keymap.releaseKey("left_click");
+		//return 1;
+	} else if(detected_gesture == "spread") {
+		// N
+		keymap.pressKey("N");
+		keymap.releaseKey("N");
+	} else if(detected_gesture == "rest") {
+		keymap.releaseKey("left_click");
+	}
+	return 0;
+}
+
+void focusGIMP() {
+	// Both worked for me in my computer, to know the name of the window go to Tools>Spy++ (in VS)
+	SetForegroundWindow(FindWindowA(NULL,"GimpProxy"));
+}
+
 int main(int argc, char** argv)
 {
-    try {
+    /*try {
+
 	// ==== START MYO ====
     // First, we create a Hub with our application identifier. Be sure not to use the com.example namespace when
     // publishing your application. The Hub provides access to one or more Myos.
@@ -54,7 +87,7 @@ int main(int argc, char** argv)
 
 	// Our own gesture classifier (random forest)
 	randomforest classifier;
-	classifier.createFromFile("randomtree_mmv.txt");
+	classifier.createFromFile("randomforest_mmv2_reduced.txt");
 
     // Hub::addListener() takes the address of any object whose class inherits from DeviceListener, and will cause
     // Hub::run() to send events to all registered device listeners.
@@ -63,14 +96,18 @@ int main(int argc, char** argv)
 	keyMap keymap;
 	std::string detected_gesture;
 	int n = 500;
+	int res = 0;
 		while (1) {
 			// In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
 			// In this case, we wish to update our display 50 times a second, so we run for 1000/20 milliseconds.
 			hub.run(50);
 			std::map<std::string, float> current_data = collector.getDataset();
 			collector.print();
+
 			detected_gesture = classifier.classify(current_data);
 			std::cout << detected_gesture << std::endl;
+			keymap.leftClick();
+			
 			if (n == 0) break;
 			n--;
 		}
@@ -79,5 +116,10 @@ int main(int argc, char** argv)
         std::cerr << "Press enter to continue.";
         std::cin.ignore();
         return 1;
-    }
+    }*/
+	keyMap keymap;
+	focusGIMP();
+	keymap.leftClick();
+	Sleep(10000);
+	keymap.releaseLeftClick();
 }

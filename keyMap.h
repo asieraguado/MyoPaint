@@ -5,6 +5,8 @@
 #include <vector>
 #define WINVER 0x0500
 #include <windows.h> // Necessary for key pressing
+#include <windef.h>
+#include <windowsx.h>
 #include <tchar.h>
 #include "SendKeys.h"
 
@@ -20,6 +22,11 @@ public:
 	inline byte getCode(std::string key);
 	inline byte getHex(std::string key);
 
+	// KEYBOARD INPUT
 	void pressKey(std::string key);
-	void releaseKey();
+	void releaseKey(std::string key);
+
+	// MOUSE INPUT
+	void leftClick();
+	void releaseLeftClick();
 };
