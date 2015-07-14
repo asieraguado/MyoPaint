@@ -62,22 +62,27 @@ namespace emgdatasampleVisualStudio2013 {
 			this->lblLeft->AutoSize = true;
 			this->lblLeft->Location = System::Drawing::Point(12, 9);
 			this->lblLeft->Name = L"lblLeft";
-			this->lblLeft->Size = System::Drawing::Size(54, 13);
+			this->lblLeft->Size = System::Drawing::Size(0, 13);
 			this->lblLeft->TabIndex = 0;
-			this->lblLeft->Text = L"Histogram";
 			// 
 			// histGUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(361, 335);
+			this->ClientSize = System::Drawing::Size(324, 181);
+			this->ControlBox = false;
 			this->Controls->Add(this->lblLeft);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"histGUI";
-			this->Text = L"histGUI";
+			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
+			this->Text = L"Gesture recognition";
 			this->Load += gcnew System::EventHandler(this, &histGUI::histGUI_Load);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &histGUI::histGUI_Paint);
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 	private: System::Void histGUI_Load(System::Object^  sender, System::EventArgs^  e) {
