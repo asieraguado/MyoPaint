@@ -13,6 +13,7 @@
 #include <map>
 #include "randomforest.h"
 #include "datacollector.h"
+#include "GIMPController.h"
 #include "keyMap.h"
 #include <myo/myo.hpp>
 #include <ctime>
@@ -45,14 +46,9 @@ int reaction(keyMap keymap, std::string detected_gesture) {
 	return 0;
 }
 
-void focusGIMP() {
-	// Both worked for me in my computer, to know the name of the window go to Tools>Spy++ (in VS)
-	SetForegroundWindow(FindWindowA(NULL,"GimpProxy"));
-}
-
 int main(int argc, char** argv)
 {
-    /*try {
+    try {
 
 	// ==== START MYO ====
     // First, we create a Hub with our application identifier. Be sure not to use the com.example namespace when
@@ -93,7 +89,6 @@ int main(int argc, char** argv)
     // Hub::run() to send events to all registered device listeners.
     hub.addListener(&collector);
 
-	keyMap keymap;
 	std::string detected_gesture;
 	int n = 500;
 	int res = 0;
@@ -106,7 +101,6 @@ int main(int argc, char** argv)
 
 			detected_gesture = classifier.classify(current_data);
 			std::cout << detected_gesture << std::endl;
-			keymap.leftClick();
 			
 			if (n == 0) break;
 			n--;
@@ -116,10 +110,5 @@ int main(int argc, char** argv)
         std::cerr << "Press enter to continue.";
         std::cin.ignore();
         return 1;
-    }*/
-	keyMap keymap;
-	focusGIMP();
-	keymap.leftClick();
-	Sleep(10000);
-	keymap.releaseLeftClick();
+    }
 }
