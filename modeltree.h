@@ -16,7 +16,7 @@ public:
     modeltree(int type, std::string attr, float val);
     // Child constructor
     modeltree(int type, std::string attr, float val, modeltree* parent, int pos);
-    // Classify: Recursive method to classify a dataset. Returns the posture of the leaf.
+    // Classify: Recursive method to classify a dataset. Returns the gesture of the leaf.
     std::string classify (std::map<std::string, float> dataset);
 private:
 	// type: 1=leaf, 0=rest of nodes.
